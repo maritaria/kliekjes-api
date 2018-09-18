@@ -1,0 +1,8 @@
+FROM node:10
+ENV APP=/app
+COPY package.json yarn.lock $APP/
+WORKDIR $APP
+RUN yarn install
+COPY . .
+EXPOSE 80
+CMD ["yarn", "run", "develop"]
